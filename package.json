@@ -1,0 +1,58 @@
+{
+  "name": "typescript_node_server",
+  "version": "1.0.0",
+  "description": "1. `npm init`",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node-dev index.ts",
+    "dist": "rimraf dist && tsc",
+    "lint": "eslint . --ext .ts",
+    "test": "jest --detectOpenHandles --colors",
+    "lint-and-fix": "eslint . --ext .ts --fix --cache",
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/himanshuteotia/typescript_node_server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/himanshuteotia/typescript_node_server/issues"
+  },
+  "homepage": "https://github.com/himanshuteotia/typescript_node_server#readme",
+  "devDependencies": {
+    "@types/compression": "^1.7.0",
+    "@types/express": "^4.17.6",
+    "@types/jest": "^26.0.0",
+    "@types/lusca": "^1.6.2",
+    "@types/node": "^14.0.13",
+    "@typescript-eslint/eslint-plugin": "^2.32.0",
+    "@typescript-eslint/parser": "^2.32.0",
+    "eslint": "^7.0.0",
+    "husky": "^4.2.5",
+    "jest": "^26.0.1",
+    "jest-junit": "^10.0.0",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^2.0.1",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^26.1.0",
+    "ts-node-dev": "^1.0.0-pre.49",
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.5"
+  },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "lusca": "^1.6.1",
+    "winston": "^3.3.3"
+  },
+  "hooks": {
+    "pre-commit": "pretty-quick --staged --bail && lint-staged"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "npm run lint-and-fix"
+    ]
+  }
+}
